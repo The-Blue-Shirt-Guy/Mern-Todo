@@ -12,7 +12,7 @@ const createTask = async (req, res) => {
   if (!title || !task) {
     return res.status(400).json({ msg: "please fill all fields" });
   }
-  const Task = await Tasks.create({ title, task });
+  const Task = await Tasks.create({ title, task, completed });
 
   res.status(200).json({ Task });
 };
