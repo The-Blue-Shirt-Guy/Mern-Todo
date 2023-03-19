@@ -108,7 +108,6 @@ const HomeContainer = () => {
 
   // delete data
   const deleteTask = async (id, key) => {
-    console.log("first");
     setTodoList((prevList) =>
       prevList.filter((listItem, index) => index !== key)
     );
