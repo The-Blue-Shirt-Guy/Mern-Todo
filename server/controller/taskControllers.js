@@ -7,12 +7,12 @@ const getTasks = async (req, res) => {
 };
 
 const createTask = async (req, res) => {
-  const { title, task } = req.body;
+  const { title, task, user } = req.body;
 
   if (!title || !task) {
     return res.status(400).json({ msg: "please fill all fields" });
   }
-  const Task = await Tasks.create({ title, task, completed: false });
+  const Task = await Tasks.create({ title, task, user, completed: false });
 
   res.status(200).json({ Task });
 };
