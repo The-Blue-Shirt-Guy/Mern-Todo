@@ -78,7 +78,10 @@ const login = async (req, res) => {
     { expiresIn: "1D" }
   );
 
-  // sending response back
+  //=======================================
+  //      // sending response back
+  //========================================
+
   res.status(200).json({
     usname: user[0].name,
     email: user[0].email,

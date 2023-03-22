@@ -1,12 +1,25 @@
-// const jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
+const User = require("../models/user");
 
-const verifyUser = (req, res, next) => {
-  // const { token } = req.headers.authorization
-  // var decoded = await jwt.verify(token, process.env.SECRET);
-  //   console.log(decoded)
+const verifyUser = async (req, res, next) => {
+  const { authorization } = req.headers;
 
-  console.log("verfy middle man");
-  next();
+  if (!authorization || !authorization.startsWith("Bearer")) {
+    return res.status(201).json({ msg: "invalid user" });
+  }
+
+  try {
+    const token = authorization.split(" ")[1];
+
+    const decoded = jwt.verify(token, process.env.SECRET_KEY);
+
+    req.user = await User.findById(decoded.userId);
+
+    next();
+  } catch (error) {
+    console.log(error);
+    res.status(401).json({ msg: " Not authorized" });
+  }
 };
 
 module.exports = verifyUser;
