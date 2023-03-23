@@ -1,14 +1,18 @@
 import "./App.css";
 
-import HomeContainer from "./components/HomeContainer";
+import { Route, Routes } from "react-router-dom";
+import RegisterPage from "./components/RegisterPage";
+import Homepage from "./pages/Homepage";
 import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <h1>Todo List</h1>
-      <HomeContainer />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Routes>
     </div>
   );
 }
