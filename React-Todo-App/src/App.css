@@ -98,6 +98,11 @@ hr {
   margin: 1.5rem auto;
 }
 
+a {
+ text-decoration: none;
+
+}
+
 .saving-in-db {
   pointer-events: none;
 }
@@ -121,11 +126,22 @@ margin-bottom: 1rem;
 
 
 
+.right-nav-div {
+  display: flex;
+  gap: 1rem;
+}
+
+.right-nav-div a {
+  font-size: 1.2rem;
+}
 
 
 
 
-
+.loading-btn {
+  pointer-events: none;
+  color: rgba(37, 34, 34, 0.541);
+}
 
 
 

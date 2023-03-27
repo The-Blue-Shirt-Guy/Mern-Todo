@@ -2,12 +2,11 @@ import React, { useState, useContext } from "react";
 
 import { AuthContext } from "../context/AuthContext";
 
-const RegisterPage = () => {
+const Login = () => {
   const { dispatch } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
 
   const [registerFormData, setRegisterFormData] = useState({
-    name: "",
     email: "",
     password: "",
   });
@@ -23,18 +22,14 @@ const RegisterPage = () => {
 
   const submitFormHandler = async (e) => {
     e.preventDefault();
-    if (
-      registerFormData.name === "" ||
-      registerFormData.email === "" ||
-      registerFormData.password === ""
-    ) {
+    if (registerFormData.email === "" || registerFormData.password === "") {
       return alert("You must provide all values");
     }
 
     setLoading(true);
 
     const response = await fetch(
-      "https://mern-todo-app-roan.vercel.app/api/v1/auth/register",
+      "https://mern-todo-app-roan.vercel.app/api/v1/auth/login",
       {
         method: "POST",
         body: JSON.stringify(registerFormData),
@@ -51,7 +46,6 @@ const RegisterPage = () => {
     }
     if (response.ok) {
       setRegisterFormData({
-        name: "",
         email: "",
         password: "",
       });
@@ -63,18 +57,8 @@ const RegisterPage = () => {
 
   return (
     <form className="register" onSubmit={submitFormHandler}>
-      <h3>Register Here</h3>
-      <div>
-        <label>Name :</label>
-        <input
-          value={registerFormData.name}
-          onChange={registerFormDataHandler}
-          name="name"
-          type="text"
-          placeholder="enter your name"
-          className="form-input"
-        ></input>
-      </div>
+      <h3>Login Here</h3>
+
       <div>
         <label>Email :</label>
         <input
@@ -110,4 +94,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default Login;
