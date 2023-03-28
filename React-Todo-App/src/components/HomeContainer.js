@@ -49,11 +49,14 @@ const HomeContainer = () => {
       } else {
         if (key.data._id) {
           setIsSaving(true);
-          const updatedData = updateDataBase({
-            id: key.data._id,
-            task: inputValue,
-            title: TitleValue,
-          });
+          const updatedData = updateDataBase(
+            {
+              id: key.data._id,
+              task: inputValue,
+              title: TitleValue,
+            },
+            user.token
+          );
           updatedData.then((data) => {
             setTodoList(
               todoList.map((item) => {
@@ -123,7 +126,7 @@ const HomeContainer = () => {
       prevList.filter((listItem, index) => index !== key)
     );
     if (id) {
-      DeleteFromDataBase(id);
+      DeleteFromDataBase(id, user.token);
     }
   };
 

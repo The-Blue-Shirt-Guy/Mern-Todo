@@ -17,14 +17,14 @@ export async function addTodoInDataBase(data, token) {
 }
 
 ///    for deleting from database
-export async function DeleteFromDataBase(id) {
+export async function DeleteFromDataBase(id, token) {
   const addTask = await fetch(
     `https://mern-todo-app-roan.vercel.app/api/v1/tasks/${id}`,
     {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: JSON.parse("user").token,
+        Authorization: `Bearer ${token}`,
       },
     }
   );
@@ -32,15 +32,19 @@ export async function DeleteFromDataBase(id) {
 }
 
 ///    for update from database
-export async function updateDataBase(item) {
+export async function updateDataBase(item, token) {
   const updateTask = await fetch(
     `https://mern-todo-app-roan.vercel.app/api/v1/tasks/${item.id}`,
     {
       method: "PATCH",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({ title: item.title, task: item.task }),
     }
   );
+  console.log(updateTask);
   const updatedData = await updateTask.json();
   return updatedData;
 }
