@@ -42,7 +42,7 @@ const register = async (req, res) => {
   // response back to user
   res
     .status(201)
-    .json({ name: user.name, email: user.email, _id: user._id, token: token });
+    .json({ user: user.name, email: user.email, _id: user._id, token: token });
 };
 
 /*

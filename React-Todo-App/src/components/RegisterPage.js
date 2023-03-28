@@ -62,51 +62,55 @@ const RegisterPage = () => {
   };
 
   return (
-    <form className="register" onSubmit={submitFormHandler}>
-      <h3>Register Here</h3>
-      <div>
-        <label>Name :</label>
-        <input
-          value={registerFormData.name}
-          onChange={registerFormDataHandler}
-          name="name"
-          type="text"
-          placeholder="enter your name"
-          className="form-input"
-        ></input>
-      </div>
-      <div>
-        <label>Email :</label>
-        <input
-          value={registerFormData.email}
-          onChange={registerFormDataHandler}
-          name="email"
-          type="email"
-          placeholder="enter your Email"
-          className="form-input"
-        ></input>
-      </div>
-      <div>
-        <label>Password :</label>
-        <input
-          value={registerFormData.password}
-          onChange={registerFormDataHandler}
-          type="password"
-          placeholder="enter your password"
-          className="form-input"
-          name="password"
-        ></input>
-      </div>
-      {loading ? (
-        <button className="btn loading-btn" onClick={submitFormHandler}>
-          submiting...
-        </button>
-      ) : (
-        <button className="btn" onClick={submitFormHandler}>
-          Log in
-        </button>
-      )}
-    </form>
+    <>
+      <h2 className="form-text">Register First to use the App</h2>
+
+      <form className="register" onSubmit={submitFormHandler}>
+        <h3>Register Here</h3>
+        <div>
+          <label>Name :</label>
+          <input
+            value={registerFormData.name}
+            onChange={registerFormDataHandler}
+            name="name"
+            type="text"
+            placeholder="enter your name"
+            className="form-input"
+          ></input>
+        </div>
+        <div>
+          <label>Email :</label>
+          <input
+            value={registerFormData.email}
+            onChange={registerFormDataHandler}
+            name="email"
+            type="email"
+            placeholder="enter your Email"
+            className="form-input"
+          ></input>
+        </div>
+        <div>
+          <label>Password :</label>
+          <input
+            value={registerFormData.password}
+            onChange={registerFormDataHandler}
+            type="password"
+            placeholder="enter your password"
+            className="form-input"
+            name="password"
+          ></input>
+        </div>
+        {loading ? (
+          <button className="btn loading-btn" onClick={submitFormHandler}>
+            submiting...
+          </button>
+        ) : (
+          <button className="btn" onClick={submitFormHandler}>
+            Log in
+          </button>
+        )}
+      </form>
+    </>
   );
 };
 

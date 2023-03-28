@@ -2,9 +2,12 @@ import React from "react";
 import Form from "./Form";
 import TodoContainer from "./TodoContainer";
 import { addTodoInDataBase, DeleteFromDataBase, updateDataBase } from "./utils";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const HomeContainer = () => {
+  const { user } = useContext(AuthContext);
+
   /// states
   const [todoList, setTodoList] = useState();
   const [inputValue, setInputValue] = useState("");
@@ -22,10 +25,13 @@ const HomeContainer = () => {
     if (inputValue !== "" && TitleValue !== "") {
       if (!isEditing) {
         setIsSaving(true);
-        const addData = await addTodoInDataBase({
-          task: inputValue,
-          title: TitleValue,
-        });
+        const addData = await addTodoInDataBase(
+          {
+            task: inputValue,
+            title: TitleValue,
+          },
+          user?.token
+        );
         setTodoList([
           ...todoList,
           {
@@ -78,7 +84,12 @@ const HomeContainer = () => {
   useEffect(() => {
     async function fetchData() {
       const data = await fetch(
-        "https://mern-todo-app-roan.vercel.app/api/v1/tasks"
+        "https://mern-todo-app-roan.vercel.app/api/v1/tasks",
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       const tasksdata = await data.json();
       setTodoList(tasksdata);

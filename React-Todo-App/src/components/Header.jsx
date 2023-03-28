@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 const Header = () => {
   const { user, dispatch } = useContext(AuthContext);
-  console.log(user);
 
   const logoutFunction = () => {
     dispatch({ type: "LOGOUT" });
@@ -19,7 +18,7 @@ const Header = () => {
       </h1>
       {user ? (
         <div>
-          <h2>{user.name}</h2>
+          <h2>{user?.user}</h2>
           {/* <div className="avtar"></div> */}
           <button onClick={logoutFunction}>Logout</button>
         </div>

@@ -6,7 +6,7 @@ const TodoContainer = ({ editTask, deleteTask, completeTask, todoList }) => {
   return (
     <div>
       <div className="todo-container">
-        {/* {todoList?.map((valueObj, key) => {
+        {todoList?.map((valueObj, key) => {
           return (
             <div className="todo-item" key={key}>
               <div className="todo-title">{valueObj.title}</div>
@@ -34,7 +34,7 @@ const TodoContainer = ({ editTask, deleteTask, completeTask, todoList }) => {
               </div>
             </div>
           );
-        })} */}
+        })}
         todo container
       </div>
     </div>

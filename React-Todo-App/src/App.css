@@ -22,7 +22,6 @@ form {
   margin: auto;
 }
 
-
 button {
   font-size: 1.4rem;
   cursor: pointer;
@@ -30,7 +29,7 @@ button {
 }
 
 button:hover {
-  color:blue
+  color: blue;
 }
 
 .addBtn {
@@ -52,7 +51,6 @@ button:hover {
 
 .btns {
   display: flex;
-
 }
 
 .todo-item {
@@ -71,7 +69,6 @@ button:hover {
   border: 1px solid black;
   padding: 5px;
 }
-
 
 .todo-details {
   display: flex;
@@ -99,8 +96,7 @@ hr {
 }
 
 a {
- text-decoration: none;
-
+  text-decoration: none;
 }
 
 .saving-in-db {
@@ -108,12 +104,12 @@ a {
 }
 
 .header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-background-color: rgb(214, 214, 183);
-padding: 1rem 2rem;
-margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(214, 214, 183);
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
 }
 
 .avtar {
@@ -124,8 +120,6 @@ margin-bottom: 1rem;
   cursor: pointer;
 }
 
-
-
 .right-nav-div {
   display: flex;
   gap: 1rem;
@@ -135,27 +129,16 @@ margin-bottom: 1rem;
   font-size: 1.2rem;
 }
 
-
-
-
 .loading-btn {
   pointer-events: none;
   color: rgba(37, 34, 34, 0.541);
 }
 
-
-
-
-
-
-
-
-@media screen and (max-width:700px) {
-  
-    .todo-item {
-      width: 90%;
-      font-size: 1.2rem;
-      padding: 0.3rem 0.5rem;
+@media screen and (max-width: 700px) {
+  .todo-item {
+    width: 90%;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.5rem;
   }
 
   input {
@@ -164,31 +147,29 @@ margin-bottom: 1rem;
     padding: 0.2rem 0.5rem;
     font-size: 1rem;
     outline: none;
+  }
+
+  .addBtn {
+    height: 40px;
+    padding: 0.2rem 0.5rem;
+    font-size: 1rem;
+  }
+  .btns {
+    margin-left: 1rem;
+  }
+  button {
+    font-size: 1.1rem;
+  }
 }
 
-.addBtn {
-  height: 40px;
-  padding: 0.2rem 0.5rem;
-  font-size: 1rem;
-}
-.btns {
-  margin-left: 1rem;
-}
-button {
-  font-size: 1.1rem;
-}
-}
-
-@media screen and (max-width:400px){
+@media screen and (max-width: 400px) {
   button {
     font-size: 0.9rem;
     cursor: pointer;
     margin: 2px;
-}
+  }
 
-.btns {
-  margin-left: 0.5rem;
+  .btns {
+    margin-left: 0.5rem;
+  }
 }
-
-}
-

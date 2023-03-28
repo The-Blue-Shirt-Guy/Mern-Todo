@@ -52,45 +52,49 @@ const Login = () => {
       dispatch({ type: "LOGIN", payload: jsonData });
       localStorage.setItem("userToken", JSON.stringify(jsonData));
       setLoading(false);
+      console.log(typeof jsonData);
     }
   };
 
   return (
-    <form className="register" onSubmit={submitFormHandler}>
-      <h3>Login Here</h3>
+    <>
+      <h2 className="form-text">Register first to use the app</h2>
+      <form className="register" onSubmit={submitFormHandler}>
+        <h3>Login Here</h3>
 
-      <div>
-        <label>Email :</label>
-        <input
-          value={registerFormData.email}
-          onChange={registerFormDataHandler}
-          name="email"
-          type="email"
-          placeholder="enter your Email"
-          className="form-input"
-        ></input>
-      </div>
-      <div>
-        <label>Password :</label>
-        <input
-          value={registerFormData.password}
-          onChange={registerFormDataHandler}
-          type="password"
-          placeholder="enter your password"
-          className="form-input"
-          name="password"
-        ></input>
-      </div>
-      {loading ? (
-        <button className="btn loading-btn" onClick={submitFormHandler}>
-          submiting...
-        </button>
-      ) : (
-        <button className="btn" onClick={submitFormHandler}>
-          Log in
-        </button>
-      )}
-    </form>
+        <div>
+          <label>Email :</label>
+          <input
+            value={registerFormData.email}
+            onChange={registerFormDataHandler}
+            name="email"
+            type="email"
+            placeholder="enter your Email"
+            className="form-input"
+          ></input>
+        </div>
+        <div>
+          <label>Password :</label>
+          <input
+            value={registerFormData.password}
+            onChange={registerFormDataHandler}
+            type="password"
+            placeholder="enter your password"
+            className="form-input"
+            name="password"
+          ></input>
+        </div>
+        {loading ? (
+          <button className="btn loading-btn" onClick={submitFormHandler}>
+            submiting...
+          </button>
+        ) : (
+          <button className="btn" onClick={submitFormHandler}>
+            Log in
+          </button>
+        )}
+      </form>
+    </>
   );
 };
 
