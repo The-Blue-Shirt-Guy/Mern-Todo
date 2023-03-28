@@ -95,6 +95,7 @@ const HomeContainer = () => {
         }
       );
       const tasksdata = await data.json();
+
       setTodoList(tasksdata);
     }
     fetchData();
@@ -109,14 +110,27 @@ const HomeContainer = () => {
   };
 
   // for changing  complete
-  const completeTask = (key) => {
+  const completeTask = (key, id) => {
+    console.log(id);
+    let dataId;
+    let completedCheck;
     setTodoList(
       todoList.map((item, index) => {
         if (index === key) {
+          dataId = item._id;
+          completedCheck = !item.completed;
           return { ...item, completed: !item.completed };
         }
         return item;
       })
+    );
+
+    const updatedData = updateDataBase(
+      {
+        id: id,
+        completed: completedCheck,
+      },
+      user.token
     );
   };
 

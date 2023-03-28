@@ -10,6 +10,7 @@ const TodoContainer = ({ editTask, deleteTask, completeTask, todoList }) => {
       </>
     );
   }
+
   return (
     <div>
       <div className="todo-container">
@@ -34,7 +35,7 @@ const TodoContainer = ({ editTask, deleteTask, completeTask, todoList }) => {
                   <button onClick={() => deleteTask(valueObj._id, key)}>
                     <AiTwotoneDelete />
                   </button>
-                  <button onClick={() => completeTask(key)}>
+                  <button onClick={() => completeTask(key, valueObj._id)}>
                     <FaCheck />
                   </button>
                 </div>

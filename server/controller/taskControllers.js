@@ -47,7 +47,7 @@ const DeleteTask = async (req, res) => {
 
 const updateTask = async (req, res) => {
   const id = req.params.id;
-  const { title, task } = req.body;
+  const { title, task, completed } = req.body;
 
   if (!id || !mongoose.isValidObjectId(id)) {
     return res.status(400).json({ msg: "please send valid id" });
@@ -67,7 +67,10 @@ const updateTask = async (req, res) => {
     return res.status(401).json({ msg: "Invalid user" });
   }
 
-  const Task = await Tasks.findByIdAndUpdate({ _id: id }, { task, title });
+  const Task = await Tasks.findByIdAndUpdate(
+    { _id: id },
+    { task, title, completed }
+  );
 
   res.status(200).json({ Task });
 };
