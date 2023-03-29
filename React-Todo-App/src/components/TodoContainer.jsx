@@ -3,14 +3,6 @@ import { FaEdit, FaCheck } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
 
 const TodoContainer = ({ editTask, deleteTask, completeTask, todoList }) => {
-  if (todoList?.length < 1) {
-    return (
-      <>
-        <h1>No Todos yet</h1>
-      </>
-    );
-  }
-
   return (
     <div>
       <div className="todo-container">
@@ -43,6 +35,7 @@ const TodoContainer = ({ editTask, deleteTask, completeTask, todoList }) => {
             </div>
           );
         })}
+        todo container
       </div>
     </div>
   );
